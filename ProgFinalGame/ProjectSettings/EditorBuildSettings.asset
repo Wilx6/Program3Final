@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Game#5/Scenes/Spooookkyyy.unity
+    guid: 841d7a6a131daea4b995bb8850ce7edf
   m_configObjects: {}
