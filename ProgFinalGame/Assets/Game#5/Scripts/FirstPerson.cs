@@ -6,6 +6,7 @@ using UnityEngine;
 public class FirstPerson : MonoBehaviour
 {
     public AudioSource footsteps;
+    public AudioSource running;
 
     public Camera playerCamera;
     public float walkSpeed = 6f;
@@ -22,7 +23,7 @@ public class FirstPerson : MonoBehaviour
     float rotationX = 0;
 
     public bool canMove = true;
-    public bool moving = false;
+    public bool isRunning = false;
 
 
     CharacterController characterController;
@@ -83,6 +84,16 @@ public class FirstPerson : MonoBehaviour
         else
         {
             footsteps.enabled = false;
+        }
+
+        if (Input.GetKey(KeyCode.W) && isRunning == true || Input.GetKey(KeyCode.A) && isRunning == true || Input.GetKey(KeyCode.S) && isRunning == true || Input.GetKey(KeyCode.D) && isRunning == true)
+        {
+            footsteps.enabled = false;
+            running.enabled = true;
+        }
+        else
+        {
+            running.enabled = false;
         }
 
         #endregion
