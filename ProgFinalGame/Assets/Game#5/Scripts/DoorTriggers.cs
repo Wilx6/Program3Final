@@ -32,14 +32,6 @@ public class DoorTriggers : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.CompareTag("Player"))
-        {
-            myDoor.SetTrigger("Open");
-            DoorOpening.enabled = true;
-            DoorClosing.enabled = false;
-            DoorOpenFast.enabled = false;
-        }
-
         if (other.CompareTag("Player") && firstPerson.isRunning == true)
         {
             myDoor.SetTrigger("FastOpen");
@@ -47,6 +39,14 @@ public class DoorTriggers : MonoBehaviour
             DoorOpening.enabled = false;
             DoorClosing.enabled = false;
 
+        }
+        
+        else if (other.CompareTag("Player"))
+        {
+            myDoor.SetTrigger("Open");
+            DoorOpening.enabled = true;
+            DoorClosing.enabled = false;
+            DoorOpenFast.enabled = false;
         }
 
     }
