@@ -6424,6 +6424,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hip Hop Dancing
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 552964c15b25990439b6f57d4ae4259e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1330755669629619180, guid: 552964c15b25990439b6f57d4ae4259e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 12.006828
@@ -12299,7 +12303,7 @@ Transform:
   m_GameObject: {fileID: 1741916198}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -36.98, y: 0.77, z: 20.77}
+  m_LocalPosition: {x: -34.86, y: 0.77, z: 20.46}
   m_LocalScale: {x: 2.1325014, y: 1.6804, z: 4.3086}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12320,6 +12324,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Trolll: {fileID: 1667789228}
   Sun: {fileID: 427147834}
+  Rick: {fileID: 527906095}
 --- !u!1 &1768992421
 GameObject:
   m_ObjectHideFlags: 0
