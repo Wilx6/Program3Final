@@ -7,6 +7,7 @@ public class FirstPerson : MonoBehaviour
 {
     public AudioSource footsteps;
     public AudioSource running;
+    public AudioSource GarWalk;
 
     public Camera playerCamera;
     public float walkSpeed = 6f;
@@ -97,5 +98,21 @@ public class FirstPerson : MonoBehaviour
         }
 
         #endregion
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) && other.CompareTag("GarbWalk"))
+        {
+            footsteps.enabled = false;
+            GarWalk.enabled = true;
+            Debug.Log("Walking On Garbage");
+        }
+        else
+        {
+            GarWalk.enabled = false;
+            footsteps.enabled = true;
+            Debug.Log("Stopped Walking");
+        }
     }
 }

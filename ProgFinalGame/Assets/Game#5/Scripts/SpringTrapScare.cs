@@ -8,7 +8,6 @@ public class SpringTrapScare : MonoBehaviour
     public GameObject SpringTrap;
     public AudioSource Laugh;
 
-    private bool triggered = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +32,7 @@ public class SpringTrapScare : MonoBehaviour
     
     IEnumerator Poof()
     {
-        yield return new WaitForSeconds(1.85f);
+        yield return new WaitForSeconds(1.35f);
         Laugh.enabled = true;
         yield return new WaitForSeconds(.15f);
         SpringTrap.SetActive(false);
