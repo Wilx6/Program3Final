@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class FirstPerson : MonoBehaviour
 {
+    public AudioSource defFootsteps;
     public AudioSource footsteps;
     public AudioSource running;
     public AudioSource GarWalk;
@@ -33,6 +34,7 @@ public class FirstPerson : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        footsteps = defFootsteps;
     }
 
     void Update()
@@ -102,17 +104,24 @@ public class FirstPerson : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) && other.CompareTag("GarbWalk"))
+        if (other.CompareTag("GarbWalk"))
         {
-            footsteps.enabled = false;
-            GarWalk.enabled = true;
+            footsteps = GarWalk;
+            defFootsteps.enabled = false;
+            
             Debug.Log("Walking On Garbage");
         }
-        else
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("GarbWalk"))
         {
+            footsteps = defFootsteps;
             GarWalk.enabled = false;
-            footsteps.enabled = true;
-            Debug.Log("Stopped Walking");
+
+            Debug.Log("Walking On Garbage");
         }
     }
+
 }
