@@ -11,7 +11,7 @@ public class FirstPerson : MonoBehaviour
     public AudioSource GarWalk;
 
     public Camera playerCamera;
-    public float walkSpeed = 6f;
+    public float walkSpeed = 6.5f;
     public float runSpeed = 12f;
     public float jumpPower = 7f;
     public float gravity = 10f;
@@ -111,6 +111,12 @@ public class FirstPerson : MonoBehaviour
             
             Debug.Log("Walking On Garbage");
         }
+
+        if (other.CompareTag("Hallway"))
+        {
+            runSpeed = 1.65f;
+            
+        }
     }
 
     void OnTriggerExit(Collider other)
@@ -121,7 +127,16 @@ public class FirstPerson : MonoBehaviour
             GarWalk.enabled = false;
 
             Debug.Log("Walking On Garbage");
+
+        }
+
+        if (other.CompareTag("Hallway"))
+        {
+            runSpeed = 5f;
+            
         }
     }
+
+
 
 }

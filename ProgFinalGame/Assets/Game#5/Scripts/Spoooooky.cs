@@ -6,8 +6,8 @@ public class Spoooooky : MonoBehaviour
 {
     public AudioSource Clicking;
     public GameObject Flashlight;
-    
 
+    Coroutine c;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,41 +24,95 @@ public class Spoooooky : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            StartCoroutine(Flashes());
+            c = StartCoroutine(Flashes());
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            StopCoroutine(c);
+            Clicking.enabled = false;
+            Flashlight.SetActive(true);
         }
     }
 
     IEnumerator Flashes()
     {
-        Clicking.enabled = true;
-        Flashlight.SetActive(false);
-        yield return new WaitForSeconds(.2f);
-        Flashlight.SetActive(true);
-        yield return new WaitForSeconds(.2f);
-        Flashlight.SetActive(false);
-        yield return new WaitForSeconds(.2f);
-        Flashlight.SetActive(true);
-        yield return new WaitForSeconds(.2f);
-        Flashlight.SetActive(false);
-        yield return new WaitForSeconds(.2f);
-        Flashlight.SetActive(true);
-        yield return new WaitForSeconds(.2f);
-        Flashlight.SetActive(false);
-        yield return new WaitForSeconds(.2f);
-        Flashlight.SetActive(true);
-        yield return new WaitForSeconds(.2f);
-        Flashlight.SetActive(false);
-        yield return new WaitForSeconds(.2f);
-        Flashlight.SetActive(true);
-        yield return new WaitForSeconds(.2f);
-        Flashlight.SetActive(false);
-        yield return new WaitForSeconds(.2f);
-        Flashlight.SetActive(true);
-        yield return new WaitForSeconds(.2f);
-        Flashlight.SetActive(false);
-        yield return new WaitForSeconds(.2f);
-        Flashlight.SetActive(true);
-        Clicking.enabled = false;
+        while (true)
+        {
+            Clicking.enabled = true;
+            yield return new WaitForSeconds(.2f);
+            Clicking.enabled = false;
+            Flashlight.SetActive(false);
+            yield return new WaitForSeconds(.5f);
+            Clicking.enabled = true;
+            yield return new WaitForSeconds(.2f);
+            Clicking.enabled = false;
+            Flashlight.SetActive(true);
+            yield return new WaitForSeconds(.4f);
+            Clicking.enabled = true;
+            yield return new WaitForSeconds(.2f);
+            Clicking.enabled = false;
+            Flashlight.SetActive(false);
+            yield return new WaitForSeconds(.2f);
+            Clicking.enabled = true;
+            yield return new WaitForSeconds(.2f);
+            Clicking.enabled = false;
+            Flashlight.SetActive(true);
+            yield return new WaitForSeconds(.2f);
+            Clicking.enabled = true;
+            yield return new WaitForSeconds(.2f);
+            Clicking.enabled = false;
+            Flashlight.SetActive(false);
+            yield return new WaitForSeconds(.2f);
+            Clicking.enabled = true;
+            yield return new WaitForSeconds(.2f);
+            Clicking.enabled = false;
+            Flashlight.SetActive(true);
+            yield return new WaitForSeconds(.2f);
+            Clicking.enabled = true;
+            yield return new WaitForSeconds(.2f);
+            Clicking.enabled = false;
+            Flashlight.SetActive(false);
+            yield return new WaitForSeconds(.5f);
+            Clicking.enabled = true;
+            yield return new WaitForSeconds(.2f);
+            Clicking.enabled = false;
+            Flashlight.SetActive(true);
+            yield return new WaitForSeconds(.2f);
+            Clicking.enabled = true;
+            yield return new WaitForSeconds(.2f);
+            Clicking.enabled = false;
+            Flashlight.SetActive(false);
+            yield return new WaitForSeconds(.4f);
+            Clicking.enabled = true;
+            yield return new WaitForSeconds(.2f);
+            Clicking.enabled = false;
+            Flashlight.SetActive(true);
+            yield return new WaitForSeconds(.2f);
+            Clicking.enabled = true;
+            yield return new WaitForSeconds(.2f);
+            Clicking.enabled = false;
+            Flashlight.SetActive(false);
+            yield return new WaitForSeconds(.2f);
+            Clicking.enabled = true;
+            yield return new WaitForSeconds(.2f);
+            Clicking.enabled = false;
+            Flashlight.SetActive(true);
+            yield return new WaitForSeconds(.3f);
+            Clicking.enabled = true;
+            yield return new WaitForSeconds(.2f);
+            Clicking.enabled = false;
+            Flashlight.SetActive(false);
+            yield return new WaitForSeconds(.2f);
+            Clicking.enabled = true;
+            yield return new WaitForSeconds(.2f);
+            Clicking.enabled = false;
+            Flashlight.SetActive(true);
+            Clicking.enabled = false;
+        }
 
     }
 }
